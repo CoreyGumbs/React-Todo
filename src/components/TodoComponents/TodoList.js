@@ -1,13 +1,14 @@
 import React from 'react';
 
+//components
+import Todo from './Todo';
+
 const TodoList = ({todos}) => {
     return(
         <div>
             {todos.map((todo, idx) => (
                 <div key={idx}>
-                    <p>Task: {todo.task}</p>
-                    <p>Completed: {todo.completed ? "Yes" : "No"}</p>
-                    <p>ID:{ todo.id }</p>
+                    <Todo todo={todo} />
                 </div>
             ))}
         </div>
