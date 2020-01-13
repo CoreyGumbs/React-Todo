@@ -9,11 +9,11 @@ class App extends React.Component {
     super();
     this.state={
       task: '',
-      todo: [
+      todos: [
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: true
         },
         {
           task: 'Bake Cookies',
@@ -31,15 +31,15 @@ class App extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const {task, todo} = this.state;
+    const {task, todos} = this.state;
     const newTask = {
       task: task,
       id: Date.now(),
       completed: false
     }
     this.setState({
-      todo: [
-        ...todo,
+      todos: [
+        ...todos,
         newTask
       ]
     });
@@ -47,14 +47,22 @@ class App extends React.Component {
     this.setState({task: ''});
   }
 
+  clearCompleted = () => {
+    const {todos} = this.state
+    const completedTasks = todos.filter(todo => todo.completed === false);
+    this.setState({
+      todos: completedTasks
+    })
+  }
+
   render() {
-   const {task, todo} = this.state;
+   const {task, todos} = this.state;
 
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} />
-        <TodoList todos={todo} />      
+        <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} clearCompleted={this.clearCompleted} />
+        <TodoList todos={todos} />      
       </div>
     );
   }
