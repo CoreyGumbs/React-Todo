@@ -1,5 +1,8 @@
 import React from 'react';
 
+//css
+import './components/TodoComponents/Todo.css';
+
 //Components
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
@@ -13,7 +16,7 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: true
+          completed: false
         },
         {
           task: 'Bake Cookies',
@@ -47,6 +50,22 @@ class App extends React.Component {
     this.setState({task: ''});
   }
 
+  toggleCompleted = id => {
+    const {todos} = this.state;
+    this.setState({
+      todos: todos.map(todo => {
+        if(todo.id === id){
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }else{
+          return todo;
+        }
+      })
+    })
+  }
+
   clearCompleted = () => {
     const {todos} = this.state
     const completedTasks = todos.filter(todo => todo.completed === false);
@@ -62,7 +81,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} clearCompleted={this.clearCompleted} />
-        <TodoList todos={todos} />      
+        <TodoList todos={todos} toggleCompleted={this.toggleCompleted}/>      
       </div>
     );
   }
