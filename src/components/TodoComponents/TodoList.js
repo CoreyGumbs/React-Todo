@@ -5,7 +5,9 @@ const TodoList = ({todos}) => {
         <div>
             {todos.map((todo, idx) => (
                 <div key={idx}>
-                    <p>{todo.task}</p>
+                    <p>Task: {todo.task}</p>
+                    <p>Completed: {todo.completed ? "Yes" : "No"}</p>
+                    <p>ID:{ todo.id }</p>
                 </div>
             ))}
         </div>
