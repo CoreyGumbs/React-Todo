@@ -43,6 +43,8 @@ class App extends React.Component {
         newTask
       ]
     });
+
+    this.setState({task: ''});
   }
 
   render() {
@@ -51,8 +53,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={todo} />
         <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} />
+        <TodoList todos={todo} />      
       </div>
     );
   }
