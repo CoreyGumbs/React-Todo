@@ -43,12 +43,15 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    this.setState({
-      todos: [
-        ...todos,
-        newTask
-      ]
-    });
+    if(task !== ''){
+      this.setState({
+        todos: [
+          ...todos,
+          newTask
+        ]
+      });
+    }
+    
     this.setState({task: ''});
   }
 
@@ -81,9 +84,12 @@ class App extends React.Component {
     const {search, todos} = this.state;
     const searchTerms = todos.filter(todo => todo.task === search); 
     
-    this.setState({
-      todos: searchTerms
-    });
+    if(search !== ''){
+      this.setState({
+        todos: searchTerms
+      });
+    }
+    
 
     this.setState({search: ''});
 
