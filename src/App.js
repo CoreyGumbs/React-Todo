@@ -81,8 +81,11 @@ class App extends React.Component {
   searchSubmit = e => {
     e.preventDefault();
     const {search, todos} = this.state;
-    const searchTerms = todos.filter(todo => todo.task === search); 
-    console.log(searchTerms);
+    const searchTerms = todos.filter(todo => {
+      //todo.task === search
+      return todo.task.toLowerCase().search(search) !== -1;
+    }); 
+    console.log(searchTerms, todos);
 
     if(searchTerms.length === 0){
       console.log('empty');
