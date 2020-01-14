@@ -8,6 +8,10 @@ body{
     padding: 50px;
 }
 
+input:focus{
+    outline: none;
+}
+
 .search-container{
     position: fixed;
     top: 0;
@@ -63,7 +67,7 @@ body{
 }
 
 #app-sub-header{
-    margin: 10px 0;
+    margin: 20px 0 10px 0;
     padding:0;
     font-size: 1.5rem;
     color: rgba(103, 128, 159, 1);
@@ -71,10 +75,43 @@ body{
 
 #todo-add-form{
     width: 30%;
-    border: 1px solid blue;
+    margin: 20px 0 50px;
     display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
 }
 
+#todo-add-input{
+    width: 100%;
+    padding: 20px;
+    font-size: 1.3rem;
+}
+
+.todo-add-btn{
+    margin: 10px 0;
+    padding: 15px 25px;
+    font-size: 1rem;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}
+
+#todo-add-submitBtn{
+    margin-right: 10px;
+    background-color: rgba(27, 163, 156, 1);
+}
+
+#todo-add-submitBtn:hover{
+    background-color: rgba(44, 62, 80, 1);
+}
+
+#todo-add-clearBtn{
+    background-color: rgba(210, 77, 87, 1);
+}
+
+#todo-add-clearBtn:hover{
+    background-color: rgba(246, 71, 71, 1);
+}
 .completed{
     text-decoration: line-through;
     color: red;

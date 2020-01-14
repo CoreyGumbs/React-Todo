@@ -5,9 +5,9 @@ const TodoForm = ({task, handleChanges, handleSubmit, clearCompleted}) => {
         <div>
             <h2 id="app-sub-header">Enter Your New Task</h2>
             <form id="todo-add-form" onSubmit={handleSubmit}>
-                <input type="text" name="task" id="task" value={task} onChange={handleChanges} placeholder="Add Tasks..." required/>
-                <button type="submit">Submit</button>
-                <button type="reset" onClick={clearCompleted}>Clear Completed</button>
+                <input  id="todo-add-input" type="text" name="task" value={task} onChange={handleChanges} placeholder="Add Tasks..." required/>
+                <button id="todo-add-submitBtn" className="todo-add-btn" type="submit">Submit</button>
+                <button id="todo-add-clearBtn"className="todo-add-btn" type="reset" onClick={clearCompleted}>Clear Completed</button>
             </form>
         </div>
     )
