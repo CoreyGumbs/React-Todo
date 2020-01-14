@@ -123,17 +123,24 @@ input:focus{
 .todo-task-container{
     width: 200px;
     height: 200px;
-    margin: 20px 10px 0 0;
+    margin: 20px 20px 0 0;
     padding: 10px 20px;
     color: rgba(46, 49, 49, 1);
-    background-color: rgba(108, 122, 137, 1);
-    border:0;
+    background-color: rgba(228, 233, 237, 1);
+    border:0px solid rgba(218, 223, 225, 1);
     border-radius: 5px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    box-shadow: 0px 5px 6px #999;
+}
+
+.todo-task-container:hover{
+    background-color: rgba(22, 160, 133, 1);
+    color: white;
+    border: 0;
 }
 
 .todo-task-content{
@@ -161,14 +168,17 @@ input:focus{
 }
 
 .todo-id{
-    color: rgba(218, 223, 225, 1);
+    color: rgba(189, 195, 199, 1);
+    font-size: .7rem;
 }
 .task-completed{
     background-color: rgba(36, 37, 42, 1);
     color: white;
+    border: 0;
 }
 
 .completed{
     text-decoration: line-through;
+    text-decoration-color: rgba(210, 77, 87, 1);    
     color: white;
 }
