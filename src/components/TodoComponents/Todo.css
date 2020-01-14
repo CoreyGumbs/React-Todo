@@ -122,18 +122,54 @@ input:focus{
 }
 .todo-task-container{
     width: 200px;
+    height: 200px;
     margin: 20px 10px 0 0;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid rgba(46, 49, 49, 1);
+    padding: 10px 20px;
+    color: rgba(46, 49, 49, 1);
+    background-color: rgba(108, 122, 137, 1);
+    border:0;
     border-radius: 5px;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
 }
 
+.todo-task-content{
+    width: 100%;
+}
+
+
+#complete-no{
+    background-color: rgba(210, 77, 87, 1);
+    padding: 8px;
+    font-size: .8rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    color: white; 
+}
+
+#complete-yes{
+    background-color: rgba(42, 187, 155, 1);
+    padding: 8px;
+    font-size: .8rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    color: white; 
+}
+
+.todo-id{
+    color: rgba(218, 223, 225, 1);
+}
+.task-completed{
+    background-color: rgba(36, 37, 42, 1);
+    color: white;
+}
+
 .completed{
     text-decoration: line-through;
-    color: red;
+    color: white;
 }
