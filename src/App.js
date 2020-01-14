@@ -6,11 +6,13 @@ import './components/TodoComponents/Todo.css';
 //Components
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoSearch from './components/TodoComponents/TodoSearch';
 
 class App extends React.Component {
   constructor(){
     super();
     this.state={
+      search: '',
       task: '',
       todos: [
         {
@@ -28,7 +30,8 @@ class App extends React.Component {
   }
 
   handleChanges = e => {
-    this.setState({task: e.target.value});
+    this.setState({[e.target.name]: e.target.value});
+    console.log(this.state.search);
   }
 
   handleSubmit = e => {
@@ -46,7 +49,6 @@ class App extends React.Component {
         newTask
       ]
     });
-
     this.setState({task: ''});
   }
 
@@ -63,7 +65,7 @@ class App extends React.Component {
           return todo;
         }
       })
-    })
+    });
   }
 
   clearCompleted = () => {
@@ -74,11 +76,30 @@ class App extends React.Component {
     })
   }
 
-  render() {
-   const {task, todos} = this.state;
+  searchSubmit = e => {
+    e.preventDefault();
+    const {search, todos} = this.state;
+    const searchTerms = todos.filter(todo => todo.task === search); 
+    
+    this.setState({
+      todos: searchTerms
+    });
 
+    this.setState({search: ''});
+
+  }
+  
+
+  storeData = (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+  
+  render() {
+   const {task, todos, search} = this.state;
+  
     return (
       <div>
+        <TodoSearch  handleChanges={this.handleChanges} searchSubmit={this.searchSubmit} value={search}/>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} clearCompleted={this.clearCompleted} />
         <TodoList todos={todos} toggleCompleted={this.toggleCompleted}/>      
