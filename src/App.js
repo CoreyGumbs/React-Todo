@@ -91,13 +91,9 @@ class App extends React.Component {
         todos: searchTerms
       });
     }
-    
-
     this.setState({search: ''});
-
   }
   
-
   storeData = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
@@ -108,7 +104,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <TodoSearch  handleChanges={this.handleChanges} searchSubmit={this.searchSubmit} value={search}/>
-        <h2>Welcome to your Todo App!</h2>
+        <h1 id="app-main-header">TaskApp</h1>
         <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} clearCompleted={this.clearCompleted} />
         <TodoList todos={todos} toggleCompleted={this.toggleCompleted}/>      
       </div>
