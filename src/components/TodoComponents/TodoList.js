@@ -5,7 +5,7 @@ import Todo from './Todo';
 
 const TodoList = ({todos, toggleCompleted}) => {
     return(
-        <div>
+        <div className="task-list-container">
             {todos.map((todo, idx) => (
                 <div key={idx} onClick={() => toggleCompleted(todo.id)}>
                     <Todo todo={todo} />

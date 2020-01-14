@@ -112,6 +112,27 @@ input:focus{
 #todo-add-clearBtn:hover{
     background-color: rgba(246, 71, 71, 1);
 }
+
+.task-list-container{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+.todo-task-container{
+    width: 200px;
+    margin: 20px 10px 0 0;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid rgba(46, 49, 49, 1);
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+}
+
 .completed{
     text-decoration: line-through;
     color: red;
