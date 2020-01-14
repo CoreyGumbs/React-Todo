@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo= ({todo}) => {
+const Todo= ({todo}) => { 
     return(
         <>  
             <p className={todo.completed ? 'completed': ' '}>Task: {todo.task}</p>

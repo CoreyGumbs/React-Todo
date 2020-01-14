@@ -1,5 +1,7 @@
 import React from 'react';
 
+//Material UI Components
+
 //css
 import './components/TodoComponents/Todo.css';
 
@@ -80,10 +82,16 @@ class App extends React.Component {
     e.preventDefault();
     const {search, todos} = this.state;
     const searchTerms = todos.filter(todo => todo.task === search); 
+    console.log(searchTerms);
+
+    if(searchTerms.length === 0){
+      console.log('empty');
+    }else{
+      this.setState({
+        todos: searchTerms
+      });
+    }
     
-    this.setState({
-      todos: searchTerms
-    });
 
     this.setState({search: ''});
 
@@ -98,7 +106,7 @@ class App extends React.Component {
    const {task, todos, search} = this.state;
   
     return (
-      <div>
+      <div className="container">
         <TodoSearch  handleChanges={this.handleChanges} searchSubmit={this.searchSubmit} value={search}/>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm task={task} handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} clearCompleted={this.clearCompleted} />
